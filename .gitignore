@@ -1,0 +1,11 @@
+# Dependency directories
+node_modules/
+
+# Supabase
+.supabase/
+supabase/functions/.env
+supabase/migrations/
+
+# OS metadata
+.DS_Store
+Thumbs.db

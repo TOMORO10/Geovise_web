@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geovise.io — Solar Repowering & BESS Intelligence</title>
+  <meta name="description" content="Geovise provides institutional-grade geospatial intelligence for solar repowering strategy and BESS deployment optimization across California, Caribbean, LATAM, and Germany." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="logo-geo">GEO</span><span class="logo-vise">VISE</span><span class="logo-dot">.io</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#technology">Technology</a></li>
+        <li><a href="#contact" class="nav-cta">Request your free report</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ====== 1. HERO ====== -->
+  <section class="hero" id="home">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Institutional-Grade Energy Intelligence</div>
+      <h1 class="hero-title">GEOVISE</h1>
+      <h2 class="hero-subtitle">Solar Repowering, BESS &amp; SOMAH Intelligence</h2>
+      <p class="hero-markets">
+        <span class="market-tag">California</span>
+      </p>
+      <div class="hero-cta-group">
+        <a href="#services" class="btn btn-gold" id="hero-cta">Explore Our Intelligence</a>
+        <a href="#contact" class="btn btn-outline">Request your free report</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ====== 2. VALUE PROPOSITION ====== -->
+  <section class="value-section" id="value">
+    <div class="container">
+      <div class="value-grid">
+        <div class="value-text">
+          <span class="section-label">Our Intelligence</span>
+          <h2 class="section-title gold">Maximize the Performance of Your Energy Assets with Institutional-Grade Data.</h2>
+          <p class="value-body">
+            Today's energy market moves fast. Geovise combines advanced geospatial mapping with deep market analysis to deliver the <em>Location Intelligence</em> required for strategic solar repowering and optimal BESS deployment — giving decision-makers an unmatched edge in a rapidly evolving landscape.
+          </p>
+          <div class="value-stats">
+            <div class="stat-item">
+              <span class="stat-number">409K+</span>
+              <span class="stat-label">CPUC Records Processed</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">ZIP Codes Analyzed</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">5+</span>
+              <span class="stat-label">Data Sources<br/>Integrated</span>
+            </div>
+          </div>
+        </div>
+        <div class="value-visual">
+          <div class="glowing-card">
+            <div class="glowing-card-inner">
+              <canvas id="miniNetworkCanvas" width="320" height="320"></canvas>
+              <div class="glowing-label">Real-Time Intelligence Network</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 3. PRODUCTS / SERVICES ====== -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <span class="section-label centered">Our Solutions</span>
+      <h2 class="section-title centered">Three Pillars of Our Intelligence Platform</h2>
+      <p class="services-intro">All analyses are delivered at <strong>ZIP code level</strong> — giving investors and operators precise, actionable intelligence for every market.</p>
+      <div class="services-grid services-grid-3">
+
+        <!-- Card 1 -->
+        <div class="service-card" id="card-repowering">
+          <div class="service-card-glow"></div>
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="28" width="56" height="24" rx="3" stroke="#D4A017" stroke-width="2"/>
+              <line x1="4" y1="36" x2="60" y2="36" stroke="#D4A017" stroke-width="1.5"/>
+              <line x1="4" y1="44" x2="60" y2="44" stroke="#D4A017" stroke-width="1.5"/>
+              <line x1="18" y1="28" x2="18" y2="52" stroke="#D4A017" stroke-width="1.5"/>
+              <line x1="32" y1="28" x2="32" y2="52" stroke="#D4A017" stroke-width="1.5"/>
+              <line x1="46" y1="28" x2="46" y2="52" stroke="#D4A017" stroke-width="1.5"/>
+              <path d="M32 20 L26 28 L38 28 Z" fill="#D4A017"/>
+              <path d="M32 4 L32 18" stroke="#D4A017" stroke-width="2" stroke-linecap="round"/>
+              <path d="M26 10 L32 4 L38 10" stroke="#D4A017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="32" cy="4" r="2" fill="#D4A017"/>
+              <circle cx="50" cy="14" r="3" fill="none" stroke="#D4A017" stroke-width="1.5"/>
+              <line x1="50" y1="11" x2="50" y2="6" stroke="#D4A017" stroke-width="1.5"/>
+              <path d="M47 9 L50 6 L53 9" stroke="#D4A017" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="service-tag">Solar</div>
+          <h3 class="service-title">Solar Repowering Intelligence</h3>
+          <p class="service-subtitle">Find your next repowering job before your competitors do.</p>
+          <ul class="service-list">
+            <li>
+              <span class="list-dot"></span>
+              Identification of 15+ year old solar systems due for capacity upgrade using CPUC interconnection records
+            </li>
+            <li>
+              <span class="list-dot"></span>
+              Capacity uplift modeling and financial performance scenarios
+            </li>
+            <li>
+              <span class="list-dot"></span>
+              Market data integration for optimal repowering timing windows
+            </li>
+            <li>
+              <span class="list-dot"></span>
+              IRA incentive optimization and regulatory compliance mapping
+            </li>
+          </ul>
+          <a href="#contact" class="service-cta">Learn More <span>→</span></a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card" id="card-bess">
+          <div class="service-card-glow"></div>
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="16" width="40" height="32" rx="4" stroke="#D4A017" stroke-width="2"/>
+              <rect x="48" y="24" width="8" height="16" rx="2" stroke="#D4A017" stroke-width="2"/>
+              <line x1="18" y1="16" x2="18" y2="48" stroke="#D4A017" stroke-width="1.5"/>
+              <line x1="28" y1="16" x2="28" y2="48" stroke="#D4A017" stroke-width="1.5"/>
+              <line x1="38" y1="16" x2="38" y2="48" stroke="#D4A017" stroke-width="1.5"/>
+              <rect x="10" y="20" width="8" height="24" rx="1" fill="#D4A017" fill-opacity="0.25"/>
+              <rect x="20" y="28" width="8" height="16" rx="1" fill="#D4A017" fill-opacity="0.25"/>
+              <rect x="30" y="24" width="8" height="20" rx="1" fill="#D4A017" fill-opacity="0.25"/>
+              <path d="M56 4 L50 4 L54 10 L48 10 L56 20 L52 12 L58 12 Z" fill="#D4A017"/>
+            </svg>
+          </div>
+          <div class="service-tag">Storage</div>
+          <h3 class="service-title">BESS Intelligence</h3>
+          <p class="service-subtitle">Strategic Siting & Storage Optimization</p>
+          <ul class="service-list">
+            <li>
+              <span class="list-dot"></span>
+              Grid node identification for congestion and price volatility hotspots
+            </li>
+            <li>
+              <span class="list-dot"></span>
+              Revenue modeling: arbitrage, ancillary services, and grid resilience
+            </li>
+            <li>
+              <span class="list-dot"></span>
+              Geospatial risk analysis and interconnection pathway assessment
+            </li>
+            <li>
+              <span class="list-dot"></span>
+              Multi-scenario optimization for capacity sizing and dispatch strategy
+            </li>
+          </ul>
+          <a href="#contact" class="service-cta">Learn More <span>→</span></a>
+        </div>
+
+        <!-- Card 3: SOMAH -->
+        <div class="service-card" id="card-somah">
+          <div class="service-card-glow"></div>
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 30 L32 10 L56 30" stroke="#D4A017" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="14" y="30" width="36" height="22" rx="2" stroke="#D4A017" stroke-width="2"/>
+              <rect x="27" y="38" width="10" height="14" rx="1" stroke="#D4A017" stroke-width="1.5"/>
+              <rect x="20" y="16" width="16" height="10" rx="1" stroke="#D4A017" stroke-width="1.5"/>
+              <line x1="20" y1="19.5" x2="36" y2="19.5" stroke="#D4A017" stroke-width="1"/>
+              <line x1="20" y1="23" x2="36" y2="23" stroke="#D4A017" stroke-width="1"/>
+              <line x1="28" y1="16" x2="28" y2="26" stroke="#D4A017" stroke-width="1"/>
+              <circle cx="50" cy="13" r="7" stroke="#D4A017" stroke-width="1.5"/>
+              <path d="M50 10 L50 16 M48 12 L52 12" stroke="#D4A017" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="service-tag">Affordable Housing</div>
+          <h3 class="service-title">SOMAH Intelligence</h3>
+          <p class="service-subtitle">Site &amp; Program Analysis for Solar Contractors</p>
+          <ul class="service-list">
+            <li>
+              <span class="list-dot"></span>
+              ZIP code-level mapping of SOMAH-eligible multifamily properties across California
+            </li>
+            <li>
+              <span class="list-dot"></span>
+              Program incentive analysis and project economics for qualified affordable housing
+            </li>
+            <li>
+              <span class="list-dot"></span>
+              Identification of underserved communities with the highest program impact
+            </li>
+            <li>
+              <span class="list-dot"></span>
+              Pipeline prioritization reports for developers and impact investors
+            </li>
+          </ul>
+          <a href="#contact" class="service-cta">Learn More <span>→</span></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====== 5. TECHNOLOGY ====== -->
+  <section class="tech-section" id="technology">
+    <div class="container">
+      <span class="section-label centered">How We Do It</span>
+      <h2 class="section-title gold centered">Our Analytical Approach.</h2>
+      <div class="tech-grid">
+
+        <div class="tech-box" id="tech-1">
+          <div class="tech-icon-wrap">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="4" y="10" width="40" height="28" rx="3" stroke="#D4A017" stroke-width="1.8"/>
+              <line x1="4" y1="20" x2="44" y2="20" stroke="#D4A017" stroke-width="1.2" opacity="0.5"/>
+              <line x1="16" y1="10" x2="16" y2="38" stroke="#D4A017" stroke-width="1.2" opacity="0.4"/>
+              <line x1="32" y1="10" x2="32" y2="38" stroke="#D4A017" stroke-width="1.2" opacity="0.4"/>
+              <circle cx="10" cy="30" r="2" fill="#D4A017" opacity="0.6"/>
+              <circle cx="22" cy="25" r="2" fill="#D4A017" opacity="0.8"/>
+              <circle cx="38" cy="28" r="2" fill="#D4A017" opacity="0.6"/>
+              <path d="M10 30 L22 25 L38 28" stroke="#D4A017" stroke-width="1.4" stroke-linecap="round"/>
+              <line x1="22" y1="42" x2="26" y2="42" stroke="#D4A017" stroke-width="1.8"/>
+              <line x1="24" y1="38" x2="24" y2="42" stroke="#D4A017" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <h3 class="tech-title">Data Collection</h3>
+          <div class="tech-divider"></div>
+          <p class="tech-body">We ingest CPUC interconnection records, demographic datasets, and utility program data — processing everything via custom Python pipelines to structure it by ZIP code.</p>
+          <ul class="tech-tags">
+            <li>CPUC Data</li>
+            <li>Utility Data</li>
+            <li>Public Datasets</li>
+          </ul>
+        </div>
+
+        <div class="tech-box featured" id="tech-2">
+          <div class="tech-icon-wrap">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="4" fill="#D4A017"/>
+              <circle cx="8" cy="12" r="3" stroke="#D4A017" stroke-width="1.8"/>
+              <circle cx="40" cy="12" r="3" stroke="#D4A017" stroke-width="1.8"/>
+              <circle cx="8" cy="36" r="3" stroke="#D4A017" stroke-width="1.8"/>
+              <circle cx="40" cy="36" r="3" stroke="#D4A017" stroke-width="1.8"/>
+              <circle cx="24" cy="6" r="3" stroke="#D4A017" stroke-width="1.8"/>
+              <circle cx="24" cy="42" r="3" stroke="#D4A017" stroke-width="1.8"/>
+              <line x1="11" y1="13" x2="21" y2="21" stroke="#D4A017" stroke-width="1.2" opacity="0.7"/>
+              <line x1="37" y1="13" x2="27" y2="21" stroke="#D4A017" stroke-width="1.2" opacity="0.7"/>
+              <line x1="11" y1="35" x2="21" y2="27" stroke="#D4A017" stroke-width="1.2" opacity="0.7"/>
+              <line x1="37" y1="35" x2="27" y2="27" stroke="#D4A017" stroke-width="1.2" opacity="0.7"/>
+              <line x1="24" y1="9" x2="24" y2="20" stroke="#D4A017" stroke-width="1.2" opacity="0.7"/>
+              <line x1="24" y1="28" x2="24" y2="39" stroke="#D4A017" stroke-width="1.2" opacity="0.7"/>
+            </svg>
+          </div>
+          <div class="tech-featured-badge">Core Methodology</div>
+          <h3 class="tech-title">Geospatial Analysis</h3>
+          <div class="tech-divider"></div>
+          <p class="tech-body">Our deterministic models cross-reference energy market data, incentive programs, and site characteristics at the ZIP code level to identify and rank the best solar installation opportunities.</p>
+          <ul class="tech-tags">
+            <li>ZIP Code Scoring</li>
+            <li>Deterministic Models</li>
+            <li>Opportunity Ranking</li>
+          </ul>
+        </div>
+
+        <div class="tech-box" id="tech-3">
+          <div class="tech-icon-wrap">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="4" y="8" width="40" height="28" rx="3" stroke="#D4A017" stroke-width="1.8"/>
+              <line x1="4" y1="18" x2="44" y2="18" stroke="#D4A017" stroke-width="1.2" opacity="0.5"/>
+              <rect x="8" y="22" width="6" height="10" rx="1" fill="#D4A017" fill-opacity="0.3"/>
+              <rect x="16" y="26" width="6" height="6" rx="1" fill="#D4A017" fill-opacity="0.5"/>
+              <rect x="24" y="20" width="6" height="12" rx="1" fill="#D4A017" fill-opacity="0.7"/>
+              <rect x="32" y="24" width="6" height="8" rx="1" fill="#D4A017" fill-opacity="0.4"/>
+              <path d="M8 22 L14 18 L22 20 L30 16 L38 14" stroke="#D4A017" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="20" y1="36" x2="28" y2="36" stroke="#D4A017" stroke-width="1.8"/>
+              <line x1="24" y1="36" x2="24" y2="42" stroke="#D4A017" stroke-width="1.8"/>
+              <line x1="14" y1="42" x2="34" y2="42" stroke="#D4A017" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3 class="tech-title">Insight Delivery</h3>
+          <div class="tech-divider"></div>
+          <p class="tech-body">Findings are delivered as clear, actionable pipeline reports and spreadsheets — designed for solar contractors who need qualified leads, not raw data dumps.</p>
+          <ul class="tech-tags">
+            <li>Pipeline Reports</li>
+            <li>Spreadsheets</li>
+            <li>Actionable Leads</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 6. TRUST / SOCIAL PROOF ====== -->
+  <section class="trust-section" id="trust">
+    <div class="container">
+      <span class="section-label centered">Trusted By</span>
+      <h2 class="section-title centered">Backed by Institutional-Grade Analysis.</h2>
+      <div class="trust-strip">
+        <div class="trust-logo">PROJECT DEVELOPERS</div>
+        <div class="trust-logo">ENERGY FUNDS</div>
+        <div class="trust-logo">GRID OPERATORS</div>
+        <div class="trust-logo">IPPs</div>
+        <div class="trust-logo">UTILITIES</div>
+        <div class="trust-logo">FAMILY OFFICES</div>
+      </div>
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <div class="trust-badge-icon">✦</div>
+          <div class="trust-badge-text">CAISO<br/><small>Grid Certified Data</small></div>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon">✦</div>
+          <div class="trust-badge-text">ISO 27001<br/><small>Data Security</small></div>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon">✦</div>
+          <div class="trust-badge-text">IRA Compliant<br/><small>Incentive Modeling</small></div>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon">✦</div>
+          <div class="trust-badge-text">Energiewende<br/><small>Market Aligned</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 7. LEAD GEN / CTA ====== -->
+  <section class="contact-section" id="contact">
+    <div class="contact-bg-glow"></div>
+    <div class="container contact-container">
+      <div class="contact-header">
+        <span class="section-label centered">Get Started</span>
+        <h2 class="section-title centered white">Ready to Optimize Your Renewable Portfolio?</h2>
+        <p class="contact-subtitle">Connect with our experts for a personalized demonstration of our intelligence platform.</p>
+      </div>
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" placeholder="Acme Energy LLC" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Corporate Email</label>
+            <input type="email" id="email" name="email" placeholder="jane@yourcompany.com" required />
+          </div>
+          <div class="form-group">
+            <label for="product">Product of Interest</label>
+            <select id="product" name="product" required>
+              <option value="" disabled selected>Select a product</option>
+              <option value="Solar Repowering Pipeline Report">Solar Repowering Pipeline Report</option>
+              <option value="SOMAH Market Intelligence Report">SOMAH Market Intelligence Report</option>
+              <option value="BESS Site Intelligence Report">BESS Site Intelligence Report</option>
+              <option value="Custom Analysis — Contact us">Custom Analysis — Contact us</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group full-width">
+          <label for="message">How Can We Help? <span class="optional">(Optional)</span></label>
+          <textarea id="message" name="message" rows="3" placeholder="Briefly describe your project or portfolio..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold btn-large" id="submitBtn">
+          Request Intelligence Consultation
+          <span class="btn-arrow">→</span>
+        </button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">✦</div>
+        <h3>Request Received</h3>
+        <p>Our intelligence team will reach out within 24 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 8. FOOTER ====== -->
+  <footer class="footer" id="footer">
+    <div class="footer-top">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-geo">GEO</span><span class="logo-vise">VISE</span><span class="logo-dot">.io</span>
+          </div>
+          <p class="footer-tagline">Geospatial Intelligence for the Energy Transition.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="LinkedIn" class="social-link">in</a>
+            <a href="#" aria-label="Twitter/X" class="social-link">𝕏</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5 class="footer-heading">Services</h5>
+          <ul>
+            <li><a href="#services">Solar Repowering Intelligence</a></li>
+            <li><a href="#services">BESS Intelligence</a></li>
+            <li><a href="#services">SOMAH Intelligence</a></li>
+            <li><a href="#contact">Custom Analysis</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="footer-heading">Contact</h5>
+          <ul>
+            <li><a href="mailto:intel@geovise.io">intel@geovise.io</a></li>
+            <li><a href="#contact">Request a Consultation</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span>© 2025 Geovise.io. All rights reserved.</span>
+        <span>Powering the Energy Transition with Intelligence.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
