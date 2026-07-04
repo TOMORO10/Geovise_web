@@ -1,15 +1,61 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
+const HUBSPOT_ACCESS_TOKEN = Deno.env.get('HUBSPOT_ACCESS_TOKEN')
 
-// CORS headers for direct testing from browser if needed
+// CORS headers
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
+// DocSend Mapping
+const DOCSEND_LINKS: Record<string, string> = {
+  "Solar Repowering Pipeline Report": "https://docsend.com/view/REPOWERING_SAMPLE", // Replace with real links
+  "SOMAH Market Intelligence Report": "https://docsend.com/view/SOMAH_SAMPLE",
+  "BESS Site Intelligence Report": "https://docsend.com/view/BESS_SAMPLE",
+  "Custom Analysis — Contact us": "https://docsend.com/view/GENERAL_INFO"
+}
+
+async function createHubSpotContact(record: any) {
+  if (!HUBSPOT_ACCESS_TOKEN) {
+    console.warn("HUBSPOT_ACCESS_TOKEN not set, skipping contact creation")
+    return null
+  }
+
+  const names = (record.full_name || "").split(" ")
+  const firstname = names[0] || ""
+  const lastname = names.slice(1).join(" ") || ""
+
+  try {
+    const response = await fetch("https://api.hubapi.com/crm/v3/objects/contacts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${HUBSPOT_ACCESS_TOKEN}`
+      },
+      body: JSON.stringify({
+        properties: {
+          email: record.email,
+          firstname: firstname,
+          lastname: lastname,
+          company: record.company,
+          product_of_interest: record.product_of_interest,
+          message: record.message || ""
+        }
+      })
+    })
+
+    const data = await response.json()
+    console.log("HubSpot Response:", JSON.stringify(data, null, 2))
+    return data
+  } catch (err) {
+    console.error("HubSpot Error:", err)
+    return null
+  }
+}
+
 serve(async (req) => {
-  // Handle CORS preflight
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
   }
@@ -25,7 +71,10 @@ serve(async (req) => {
 
     const { full_name, company, email, product_of_interest, message } = record
 
-    // Formatear el contenido del correo para el equipo Geovise
+    // 1. Create HubSpot Contact
+    await createHubSpotContact(record)
+
+    // 2. Prepare Internal Notification
     const emailHtml = `
       <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; border-radius: 10px;">
         <h2 style="color: #D4A017;">NUEVO LEAD: GEOVISE.IO</h2>
@@ -42,9 +91,7 @@ serve(async (req) => {
       </div>
     `
 
-    // --- 1. Internal Notification (To Geovise Team) ---
     console.log(`Sending internal notification for lead: ${full_name}`)
-
     const resInternal = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -61,28 +108,22 @@ serve(async (req) => {
 
     const internalData = await resInternal.json()
     console.log("Resend Internal Response Status:", resInternal.status)
-    console.log("Resend Internal Response Data:", JSON.stringify(internalData, null, 2))
 
-    // --- 2. Prospect Auto-Response ---
-
-    // REEMPLAZAR ESTE ENLACE CON TU LINK REAL DE DOCSEND
-    const DOCSEND_LINK = "https://docsend.com/view/YOUR_LINK_HERE";
-
+    // 3. Prospect Auto-Response with Dynamic DocSend Link
+    const docsendLink = DOCSEND_LINKS[product_of_interest] || "https://docsend.com/view/GENERAL_INFO"
+    
     let prospectData = null
-    let resProspectStatus = 0
-
     if (email) {
       console.log(`Sending auto-response to prospect: ${email}`)
-
       const prospectEmailHtml = `
         <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: auto; color: #333; padding: 20px;">
           <h2 style="color: #0d1b2a;">Your Geovise Intelligence Report</h2>
-          <p>Hi ${full_name.split(' ')[0]},</p>
+          <p>Hi ${full_name.split(' ')[0] || "there"},</p>
           <p>Thanks for requesting your free sample report. At Geovise, we process over 409,000 CPUC records and analyze hundreds of ZIP codes to find the best solar and storage opportunities in California.</p>
           <p>You can view your requested intelligence report securely via the link below:</p>
           
           <div style="text-align: center; margin: 30px 0;">
-            <a href="${DOCSEND_LINK}?email=${encodeURIComponent(email)}" style="background-color: #D4A017; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold; display: inline-block;">
+            <a href="${docsendLink}?email=${encodeURIComponent(email)}" style="background-color: #D4A017; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold; display: inline-block;">
               View Sample Report
             </a>
           </div>
@@ -107,10 +148,8 @@ serve(async (req) => {
         }),
       })
 
-      resProspectStatus = resProspect.status
       prospectData = await resProspect.json()
-      console.log("Resend Prospect Response Status:", resProspectStatus)
-      console.log("Resend Prospect Response Data:", JSON.stringify(prospectData, null, 2))
+      console.log("Resend Prospect Response Status:", resProspect.status)
     }
 
     return new Response(JSON.stringify({

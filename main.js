@@ -72,7 +72,6 @@
 
   const KEY_NODES = [
     { rx: 0.15, ry: 0.42, label: 'California', color: GOLD },
-    { rx: 0.31, ry: 0.70, label: 'LATAM',      color: '#8CC653' },
   ];
 
   function initHero() {
@@ -279,7 +278,7 @@
      SCROLL REVEAL
   ══════════════════════════════════════════════════════════ */
   const revealTargets = document.querySelectorAll(
-    '.value-grid, .service-card, .tech-box, .market-card, .trust-badge, .trust-logo, .contact-form'
+    '.value-grid, .service-card, .tech-box, .market-card, .contact-form'
   );
 
   revealTargets.forEach(el => el.classList.add('reveal'));
@@ -299,19 +298,27 @@
   /* ══════════════════════════════════════════════════════════
      CONTACT FORM — Real Supabase Integration
   ══════════════════════════════════════════════════════════ */
-  const form = document.getElementById('contactForm');
-  const formSuccess = document.getElementById('formSuccess');
-
   // Supabase Configuration
   const SUPABASE_URL = 'https://fjylfcrvhdfdnwtncbkt.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZqeWxmY3J2aGRmZG53dG5jYmt0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0NTUxMjUsImV4cCI6MjA5MDAzMTEyNX0.vSLJfDQR6plnOVsecSgkg5ige57MnesLfEsxpfGtp5k';
 
-  if (form) {
+  // --- FORM HANDLERS (Landing & BESS) ---
+  const forms = document.querySelectorAll('form');
+  
+  forms.forEach(form => {
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      const btn = document.getElementById('submitBtn');
+      // Basic Validation
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const btn = form.querySelector('button[type="submit"]');
       const originalBtnText = btn.textContent;
+      const formSuccess = form.parentElement.querySelector('.form-success');
+      
       btn.textContent = 'Sending...';
       btn.disabled = true;
       btn.style.opacity = '0.7';
@@ -323,7 +330,10 @@
         company: formData.get('company'),
         email: formData.get('email'),
         product_of_interest: formData.get('product'),
-        message: formData.get('message')
+        message: formData.get('message'),
+        // Extra fields for BESS
+        market: formData.get('market') || null,
+        project_size: formData.get('size') || null
       };
 
       try {

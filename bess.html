@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geovise.io — BESS Site Intelligence</title>
+  <meta name="description" content="Strategic siting and storage optimization intelligence for Battery Energy Storage Systems. Find the optimal grid node for your next storage project." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="subpage">
+
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo" style="text-decoration: none;">
+        <span class="logo-geo">GEO</span><span class="logo-vise">VISE</span><span class="logo-dot">.io</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/repowering.html">Repowering</a></li>
+        <li><a href="/somah.html">SOMAH</a></li>
+        <li><a href="/bess.html" class="active">BESS</a></li>
+        <li><a href="/#technology">Technology</a></li>
+        <li><a href="#contact" class="nav-cta">GET REPORT →</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ====== HERO ====== -->
+  <header class="subpage-hero">
+    <div class="container">
+      <span class="sub-tag">BESS SITE INTELLIGENCE</span>
+      <h1 class="sub-title">Find the optimal grid node for your<br>next storage project.</h1>
+      <p class="sub-subtitle">Grid capacity, interconnection queues, LMP volatility, land availability and permitting risk — scored at every substation node. California and Germany.</p>
+      <div class="hero-cta-group">
+        <a href="#contact" class="btn btn-gold">REQUEST SITE ANALYSIS →</a>
+        <a href="#how-it-works" class="btn btn-outline">See methodology</a>
+      </div>
+
+      <div class="urgency-grid" style="margin-top: 60px;">
+        <div class="urgency-card">
+          <span class="urgency-label urgency-crit">🇺🇸 CALIFORNIA</span>
+          <div class="urgency-year">PG&E · SCE · SDG&E</div>
+          <p class="stat-desc">LMP + congestion mapping<br>IRA 30% ITC eligible</p>
+        </div>
+        <div class="urgency-card">
+          <span class="urgency-label urgency-high">🇩🇪 GERMANY</span>
+          <div class="urgency-year">BNetzA · DACH</div>
+          <p class="stat-desc">FCR + aFRR + mFRR modeling<br>Energiewende aligned</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== HOW IT WORKS ====== -->
+  <section class="how-it-works-sub" id="how-it-works">
+    <div class="container">
+      <span class="section-label centered">Methodology</span>
+      <h2 class="section-title centered">Data-Backed Site Ranking.</h2>
+      <div class="step-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <h4>Define Target Region</h4>
+            <p>California utility territory or German Bundesland. Define project size range and revenue strategy.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <h4>Receive Substation Scores</h4>
+            <p>Every node ranked: grid capacity, queue saturation, LMP volatility, land, permitting, projected revenue.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <h4>Fast-Track Due Diligence</h4>
+            <p>Data-backed site ranking. Reduce due diligence from months to weeks. Bankable analysis ready.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PRICING ====== -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <span class="section-label centered">Consultative Solutions</span>
+      <h2 class="section-title centered gold">Institutional Intelligence.</h2>
+      <div class="pricing-grid">
+        <!-- Site -->
+        <div class="pricing-card">
+          <h3 class="tech-title">SINGLE SITE · CA</h3>
+          <div class="price-tag">$1,999<small style="font-size: 0.4em; color: var(--gray);">/substation</small></div>
+          <ul class="price-feat">
+            <li>Full site score report</li>
+            <li>Grid capacity + queue</li>
+            <li>LMP historical volatility</li>
+            <li>Revenue scenario model</li>
+            <li>Permitting risk assessment</li>
+          </ul>
+          <a href="#contact" class="stripe-btn">REQUEST ANALYSIS →</a>
+        </div>
+        <!-- Regional -->
+        <div class="pricing-card featured">
+          <h3 class="tech-title">REGIONAL · CA ★</h3>
+          <div class="price-tag">$4,999<small style="font-size: 0.4em; color: var(--gray);">/utility zone</small></div>
+          <ul class="price-feat">
+            <li>All substations ranked</li>
+            <li>Top 10 detailed analysis</li>
+            <li>Multi-scenario revenue</li>
+            <li>IRA incentive optimization</li>
+            <li>Quarterly update included</li>
+          </ul>
+          <a href="#contact" class="stripe-btn">REQUEST REGIONAL →</a>
+        </div>
+        <!-- DACH -->
+        <div class="pricing-card">
+          <h3 class="tech-title">GERMANY · DACH</h3>
+          <div class="price-tag">€8,000+<small style="font-size: 0.4em; color: var(--gray);">/Bundesland</small></div>
+          <ul class="price-feat">
+            <li>BNetzA data integrated</li>
+            <li>FCR/aFRR/mFRR modeling</li>
+            <li>Regulatory mapping</li>
+            <li>Land acquisition intel</li>
+            <li>DACH expansion ready</li>
+          </ul>
+          <a href="#contact" class="stripe-btn">REQUEST DE ANALYSIS →</a>
+        </div>
+      </div>
+
+      <div class="pricing-card" style="margin-top: 40px; border-color: var(--gold-light); background: rgba(200, 135, 42, 0.02);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <h3 class="tech-title" style="margin-bottom: 8px;">DUE DILIGENCE PACKAGE</h3>
+            <p class="gray-light">Full site analysis for project financing. Includes financial model + regulatory compliance + investment memo.</p>
+          </div>
+          <div class="price-tag" style="margin: 0;">$35,000</div>
+          <a href="#contact" class="btn btn-gold">CONTACT FOR DUE DILIGENCE →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== BESS CONTACT FORM ====== -->
+  <section class="contact-section" id="contact">
+    <div class="container contact-container">
+      <div class="contact-header">
+        <span class="section-label centered">Consultation</span>
+        <h2 class="section-title centered white">Request BESS Intelligence</h2>
+        <p class="contact-subtitle">Provide your project details and a BESS strategist will contact you within 24 hours.</p>
+      </div>
+      <form class="contact-form" id="bessForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" placeholder="Solar Corp" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Corporate Email</label>
+            <input type="email" id="email" name="email" placeholder="jane@yourcompany.com" required />
+          </div>
+          <div class="form-group">
+            <label for="market">Target Market</label>
+            <select id="market" name="market" required>
+              <option value="" disabled selected>Select a market</option>
+              <option value="CA-PG&E">California (PG&E)</option>
+              <option value="CA-SCE">California (SCE)</option>
+              <option value="CA-SDG&E">California (SDG&E)</option>
+              <option value="Germany/DACH">Germany / DACH</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="product">Intelligence Product</label>
+            <select id="product" name="product" required>
+              <option value="" disabled selected>Select a product</option>
+              <option value="Single Site $1,999">Single Site Intel — $1,999</option>
+              <option value="Regional $4,999">Regional Ranking — $4,999</option>
+              <option value="Germany €8k-20k">Germany / DACH — €8k-20k</option>
+              <option value="Due Diligence $35k">Due Diligence Package — $35,000</option>
+              <option value="Custom">Custom Scope</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="size">Project Size (MW)</label>
+            <input type="text" id="size" name="size" placeholder="e.g. 5-10 MW" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Project Requirements <span class="optional">(Optional)</span></label>
+          <textarea id="message" name="message" rows="4" placeholder="Briefly describe your siting strategy or specific substation nodes..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold btn-large" id="submitBtn">
+          REQUEST BESS INTELLIGENCE →
+        </button>
+      </form>
+      <div id="formSuccess" class="form-success">
+        <div class="success-icon">✓</div>
+        <h2 class="section-title white">Request Received.</h2>
+        <p class="gray-light">A BESS specialist will review your requirements and contact you shortly.</p>
+        <a href="/" class="btn btn-outline" style="margin-top: 32px;">Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo" style="text-decoration: none;">
+          <span class="logo-geo">GEO</span><span class="logo-vise">VISE</span><span class="logo-dot">.io</span>
+        </a>
+        <p class="footer-tagline">Geospatial Intelligence for the Energy Transition.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn" class="social-link">in</a>
+          <a href="#" aria-label="Twitter/X" class="social-link">𝕏</a>
+        </div>
+      </div>
+      <div class="footer-col"></div>
+      <div class="footer-col" style="text-align: right;">
+        <span class="gray">© 2026 Geovise.io. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
