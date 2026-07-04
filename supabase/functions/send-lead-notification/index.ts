@@ -11,10 +11,12 @@ const corsHeaders = {
 
 // DocSend Mapping
 const DOCSEND_LINKS: Record<string, string> = {
-  "Solar Repowering Pipeline Report": "https://docsend.com/view/REPOWERING_SAMPLE", // Replace with real links
-  "SOMAH Market Intelligence Report": "https://docsend.com/view/SOMAH_SAMPLE",
-  "BESS Site Intelligence Report": "https://docsend.com/view/BESS_SAMPLE",
-  "Custom Analysis — Contact us": "https://docsend.com/view/GENERAL_INFO"
+  "Utility-Scale Solar Repowering Intelligence": "https://docsend.com/view/REPOWERING_SAMPLE", // Replace with real links
+  "BESS & Virtual Battery Siting (CAISO / ERCOT)": "https://docsend.com/view/BESS_SAMPLE",
+  "Texas (ERCOT) Land & Node Origination": "https://docsend.com/view/TEXAS_SAMPLE",
+  "Custom Territory / GIS Analysis": "https://docsend.com/view/GENERAL_INFO",
+  "Enterprise / Data-as-a-Service (DaaS)": "https://docsend.com/view/GENERAL_INFO",
+  "Partnership Inquiry": "https://docsend.com/view/GENERAL_INFO"
 }
 
 async function createHubSpotContact(record: any) {
@@ -119,7 +121,7 @@ serve(async (req) => {
         <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: auto; color: #333; padding: 20px;">
           <h2 style="color: #0d1b2a;">Your Geovise Intelligence Report</h2>
           <p>Hi ${full_name.split(' ')[0] || "there"},</p>
-          <p>Thanks for requesting your free sample report. At Geovise, we process over 409,000 CPUC records and analyze hundreds of ZIP codes to find the best solar and storage opportunities in California.</p>
+          <p>Thanks for requesting your free sample report. At Geovise, we process over 409,000 CPUC interconnection records and map ERCOT nodal volatility to find the best utility-scale solar and storage opportunities across CAISO and ERCOT.</p>
           <p>You can view your requested intelligence report securely via the link below:</p>
           
           <div style="text-align: center; margin: 30px 0;">
