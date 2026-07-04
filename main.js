@@ -71,7 +71,8 @@
   ];
 
   const KEY_NODES = [
-    { rx: 0.15, ry: 0.42, label: 'California', color: GOLD },
+    { rx: 0.15, ry: 0.42, label: 'California · CAISO', color: GOLD },
+    { rx: 0.23, ry: 0.56, label: 'Texas · ERCOT', color: GOLD },
   ];
 
   function initHero() {
@@ -365,7 +366,7 @@
         btn.style.opacity = '1';
       }
     });
-  }
+  });
 
 
   /* ══════════════════════════════════════════════════════════

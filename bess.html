@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Geovise.io — BESS Site Intelligence</title>
-  <meta name="description" content="Strategic siting and storage optimization intelligence for Battery Energy Storage Systems. Find the optimal grid node for your next storage project." />
+  <title>Geovise.io — BESS & Virtual Battery Intelligence</title>
+  <meta name="description" content="Node-level volatility analysis and storage aggregation strategy across CAISO and ERCOT. Find the optimal grid node for your next BESS or virtual battery project." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -20,10 +20,10 @@
       </a>
       <ul class="nav-links">
         <li><a href="repowering.html">Repowering</a></li>
-        <li><a href="somah.html">SOMAH</a></li>
-        <li><a href="bess.html" class="active">BESS</a></li>
+        <li><a href="bess.html" class="active">BESS &amp; Virtual Battery</a></li>
+        <li><a href="texas.html">Texas Grid</a></li>
         <li><a href="index.html#technology">Technology</a></li>
-        <li><a href="#contact" class="nav-cta">GET REPORT →</a></li>
+        <li><a href="#contact" class="nav-cta">Get Started</a></li>
       </ul>
       <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -34,24 +34,24 @@
   <!-- ====== HERO ====== -->
   <header class="subpage-hero">
     <div class="container">
-      <span class="sub-tag">BESS SITE INTELLIGENCE</span>
+      <span class="sub-tag">BESS &amp; VIRTUAL BATTERY INTELLIGENCE</span>
       <h1 class="sub-title">Find the optimal grid node for your<br>next storage project.</h1>
-      <p class="sub-subtitle">Grid capacity, interconnection queues, LMP volatility, land availability and permitting risk — scored at every substation node. California and Germany.</p>
+      <p class="sub-subtitle">Nodal pricing volatility, interconnection queues, land availability, and permitting risk — scored at every substation node across CAISO and ERCOT.</p>
       <div class="hero-cta-group">
-        <a href="#contact" class="btn btn-gold">REQUEST SITE ANALYSIS →</a>
+        <a href="#contact" class="btn btn-gold">Request Siting Analysis →</a>
         <a href="#how-it-works" class="btn btn-outline">See methodology</a>
       </div>
 
       <div class="urgency-grid" style="margin-top: 60px;">
         <div class="urgency-card">
-          <span class="urgency-label urgency-crit">🇺🇸 CALIFORNIA</span>
-          <div class="urgency-year">PG&E · SCE · SDG&E</div>
-          <p class="stat-desc">LMP + congestion mapping<br>IRA 30% ITC eligible</p>
+          <span class="urgency-label urgency-caiso">CALIFORNIA · CAISO</span>
+          <div class="urgency-year">PG&amp;E · SCE · SDG&amp;E</div>
+          <p class="stat-desc">Nodal pricing + congestion mapping<br>IRA 30% ITC eligible</p>
         </div>
         <div class="urgency-card">
-          <span class="urgency-label urgency-high">🇩🇪 GERMANY</span>
-          <div class="urgency-year">BNetzA · DACH</div>
-          <p class="stat-desc">FCR + aFRR + mFRR modeling<br>Energiewende aligned</p>
+          <span class="urgency-label urgency-ercot">TEXAS · ERCOT</span>
+          <div class="urgency-year">Load Zones &amp; Trading Hubs</div>
+          <p class="stat-desc">RTM / DAM volatility modeling<br>Nation's fastest-moving grid</p>
         </div>
       </div>
     </div>
@@ -67,14 +67,14 @@
           <div class="step-num">01</div>
           <div class="step-body">
             <h4>Define Target Region</h4>
-            <p>California utility territory or German Bundesland. Define project size range and revenue strategy.</p>
+            <p>California utility territory or ERCOT load zone. Define project size range and revenue strategy.</p>
           </div>
         </div>
         <div class="step-card">
           <div class="step-num">02</div>
           <div class="step-body">
             <h4>Receive Substation Scores</h4>
-            <p>Every node ranked: grid capacity, queue saturation, LMP volatility, land, permitting, projected revenue.</p>
+            <p>Every node ranked: grid capacity, queue saturation, nodal price volatility, land, permitting, projected revenue.</p>
           </div>
         </div>
         <div class="step-card">
@@ -96,12 +96,12 @@
       <div class="pricing-grid">
         <!-- Site -->
         <div class="pricing-card">
-          <h3 class="tech-title">SINGLE SITE · CA</h3>
+          <h3 class="tech-title">SINGLE SITE</h3>
           <div class="price-tag">$1,999<small style="font-size: 0.4em; color: var(--gray);">/substation</small></div>
           <ul class="price-feat">
             <li>Full site score report</li>
             <li>Grid capacity + queue</li>
-            <li>LMP historical volatility</li>
+            <li>Nodal price historical volatility</li>
             <li>Revenue scenario model</li>
             <li>Permitting risk assessment</li>
           </ul>
@@ -109,8 +109,8 @@
         </div>
         <!-- Regional -->
         <div class="pricing-card featured">
-          <h3 class="tech-title">REGIONAL · CA ★</h3>
-          <div class="price-tag">$4,999<small style="font-size: 0.4em; color: var(--gray);">/utility zone</small></div>
+          <h3 class="tech-title">REGIONAL ★</h3>
+          <div class="price-tag">$4,999<small style="font-size: 0.4em; color: var(--gray);">/utility or load zone</small></div>
           <ul class="price-feat">
             <li>All substations ranked</li>
             <li>Top 10 detailed analysis</li>
@@ -120,18 +120,17 @@
           </ul>
           <a href="#contact" class="stripe-btn">REQUEST REGIONAL →</a>
         </div>
-        <!-- DACH -->
+        <!-- Enterprise -->
         <div class="pricing-card">
-          <h3 class="tech-title">GERMANY · DACH</h3>
-          <div class="price-tag">€8,000+<small style="font-size: 0.4em; color: var(--gray);">/Bundesland</small></div>
+          <h3 class="tech-title">ENTERPRISE / DaaS</h3>
+          <div class="price-tag" style="font-size: 1.6em;">Volume Pricing</div>
           <ul class="price-feat">
-            <li>BNetzA data integrated</li>
-            <li>FCR/aFRR/mFRR modeling</li>
-            <li>Regulatory mapping</li>
-            <li>Land acquisition intel</li>
-            <li>DACH expansion ready</li>
+            <li>API / recurring data feed</li>
+            <li>Multi-territory coverage</li>
+            <li>Dedicated analyst support</li>
+            <li>Quarterly refresh cycle</li>
           </ul>
-          <a href="#contact" class="stripe-btn">REQUEST DE ANALYSIS →</a>
+          <a href="#contact" class="stripe-btn">REQUEST ENTERPRISE →</a>
         </div>
       </div>
 
@@ -164,7 +163,7 @@
           </div>
           <div class="form-group">
             <label for="company">Company</label>
-            <input type="text" id="company" name="company" placeholder="Solar Corp" required />
+            <input type="text" id="company" name="company" placeholder="Acme Energy LLC" required />
           </div>
         </div>
         <div class="form-row">
@@ -179,20 +178,22 @@
               <option value="CA-PG&E">California (PG&E)</option>
               <option value="CA-SCE">California (SCE)</option>
               <option value="CA-SDG&E">California (SDG&E)</option>
-              <option value="Germany/DACH">Germany / DACH</option>
+              <option value="ERCOT-North">Texas (ERCOT — North)</option>
+              <option value="ERCOT-Houston">Texas (ERCOT — Houston)</option>
+              <option value="ERCOT-West">Texas (ERCOT — West)</option>
             </select>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label for="product">Intelligence Product</label>
+            <label for="product">Product of Interest</label>
             <select id="product" name="product" required>
-              <option value="" disabled selected>Select a product</option>
-              <option value="Single Site $1,999">Single Site Intel — $1,999</option>
-              <option value="Regional $4,999">Regional Ranking — $4,999</option>
-              <option value="Germany €8k-20k">Germany / DACH — €8k-20k</option>
-              <option value="Due Diligence $35k">Due Diligence Package — $35,000</option>
-              <option value="Custom">Custom Scope</option>
+              <option value="BESS & Virtual Battery Siting (CAISO / ERCOT)" selected>BESS &amp; Virtual Battery Siting (CAISO / ERCOT)</option>
+              <option value="Utility-Scale Solar Repowering Intelligence">Utility-Scale Solar Repowering Intelligence</option>
+              <option value="Texas (ERCOT) Land & Node Origination">Texas (ERCOT) Land &amp; Node Origination</option>
+              <option value="Custom Territory / GIS Analysis">Custom Territory / GIS Analysis</option>
+              <option value="Enterprise / Data-as-a-Service (DaaS)">Enterprise / Data-as-a-Service (DaaS)</option>
+              <option value="Partnership Inquiry">Partnership Inquiry</option>
             </select>
           </div>
           <div class="form-group">
@@ -230,7 +231,15 @@
           <a href="#" aria-label="Twitter/X" class="social-link">𝕏</a>
         </div>
       </div>
-      <div class="footer-col"></div>
+      <div class="footer-col">
+        <h5 class="footer-heading">Services</h5>
+        <ul>
+          <li><a href="repowering.html">Solar Repowering</a></li>
+          <li><a href="bess.html">BESS &amp; Virtual Battery</a></li>
+          <li><a href="texas.html">Texas Grid</a></li>
+          <li><a href="#contact">Custom Analysis</a></li>
+        </ul>
+      </div>
       <div class="footer-col" style="text-align: right;">
         <span class="gray">© 2026 Geovise.io. All rights reserved.</span>
       </div>
