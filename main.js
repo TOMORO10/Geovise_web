@@ -300,11 +300,8 @@
      CONTACT FORM — Real Supabase Integration
   ══════════════════════════════════════════════════════════ */
   // Supabase Configuration
-  // TODO: the previous Supabase project was paused/deleted. Create a new project,
-  // run supabase/schema.sql in its SQL Editor, then replace these two values with
-  // the new project's URL and anon/public API key (Dashboard → Project Settings → API).
-  const SUPABASE_URL = 'REPLACE_WITH_NEW_SUPABASE_PROJECT_URL';
-  const SUPABASE_ANON_KEY = 'REPLACE_WITH_NEW_SUPABASE_ANON_KEY';
+  const SUPABASE_URL = 'https://jwvfljkmnkalkswquogl.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_iUTUPSHTjzZMLzAiT73fmg_9VKEahL_';
 
   // --- FORM HANDLERS (Landing & BESS) ---
   const forms = document.querySelectorAll('form');
