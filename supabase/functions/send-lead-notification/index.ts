@@ -3,6 +3,14 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
 const HUBSPOT_ACCESS_TOKEN = Deno.env.get('HUBSPOT_ACCESS_TOKEN')
 
+// NOTE: 'resend.dev' is Resend's shared sandbox sending domain. In sandbox mode
+// Resend only delivers to the Resend account owner's own address — the prospect
+// auto-response below will silently fail to reach real prospects until a custom
+// domain (e.g. geovise.io) is verified in the Resend dashboard and used here instead.
+const INTERNAL_FROM = 'Geovise Notifications <notifications@resend.dev>'
+const PROSPECT_FROM = 'Geovise Team <notifications@resend.dev>'
+const INTERNAL_NOTIFICATION_RECIPIENTS = ['intel@geovise.io']
+
 // CORS headers
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -101,8 +109,8 @@ serve(async (req) => {
         'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'Geovise Notifications <notifications@resend.dev>',
-        to: ['intel@geovise.io', 'tmojica85@gmail.com'],
+        from: INTERNAL_FROM,
+        to: INTERNAL_NOTIFICATION_RECIPIENTS,
         subject: `🚀 Nuevo Lead: ${full_name} (${company})`,
         html: emailHtml,
       }),
@@ -142,7 +150,7 @@ serve(async (req) => {
           'Authorization': `Bearer ${RESEND_API_KEY}`,
         },
         body: JSON.stringify({
-          from: 'Geovise Team <notifications@resend.dev>',
+          from: PROSPECT_FROM,
           to: [email],
           reply_to: 'intel@geovise.io',
           subject: `Your Geovise Intelligence Report`,

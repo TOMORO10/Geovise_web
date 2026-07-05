@@ -300,8 +300,11 @@
      CONTACT FORM — Real Supabase Integration
   ══════════════════════════════════════════════════════════ */
   // Supabase Configuration
-  const SUPABASE_URL = 'https://fjylfcrvhdfdnwtncbkt.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZqeWxmY3J2aGRmZG53dG5jYmt0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0NTUxMjUsImV4cCI6MjA5MDAzMTEyNX0.vSLJfDQR6plnOVsecSgkg5ige57MnesLfEsxpfGtp5k';
+  // TODO: the previous Supabase project was paused/deleted. Create a new project,
+  // run supabase/schema.sql in its SQL Editor, then replace these two values with
+  // the new project's URL and anon/public API key (Dashboard → Project Settings → API).
+  const SUPABASE_URL = 'REPLACE_WITH_NEW_SUPABASE_PROJECT_URL';
+  const SUPABASE_ANON_KEY = 'REPLACE_WITH_NEW_SUPABASE_ANON_KEY';
 
   // --- FORM HANDLERS (Landing & BESS) ---
   const forms = document.querySelectorAll('form');
@@ -338,7 +341,7 @@
       };
 
       try {
-        const response = await fetch(`${SUPABASE_URL}/rest/v1/Leads`, {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
