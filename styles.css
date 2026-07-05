@@ -749,8 +749,8 @@ input:focus, select:focus, textarea:focus {
   text-align: center;
 }
 .stat-box { display: flex; flex-direction: column; gap: 8px; }
-.stat-val { font-family: var(--font-data); font-size: 2.25rem; font-weight: 700; color: var(--gold); }
-.stat-desc { font-size: 0.85rem; color: var(--gray); line-height: 1.2; }
+.stat-val { font-family: var(--font-data); font-size: clamp(1.5rem, 6vw, 2.25rem); font-weight: 700; color: var(--gold); }
+.stat-desc { font-size: 0.85rem; color: var(--gray); line-height: 1.35; }
 
 .urgency-grid {
   display: grid;
@@ -886,4 +886,36 @@ input:focus, select:focus, textarea:focus {
   .contact-form { padding: 32px 24px; }
   section { padding: 80px 0; }
   .container { padding: 0 24px; }
+
+  .hero-markets { flex-wrap: wrap; row-gap: 8px; }
+
+  /* Stats strips: long values (e.g. "CAISO+ERCOT") need full width to avoid clipping */
+  .stats-strip { grid-template-columns: 1fr; gap: 28px; }
+  .value-stats { grid-template-columns: 1fr; gap: 24px; }
+
+  /* Bump up the smallest text on the site for mobile legibility */
+  .tech-tags li { font-size: 0.8rem; padding: 5px 12px; }
+  .report-mock-header, .report-mock-row { font-size: 0.82rem; padding: 12px 10px; }
+  .mock-status { font-size: 0.78rem; }
+  .stat-desc { font-size: 0.95rem; }
+  .service-subtitle, .service-list li, .tech-body { font-size: 1rem; }
+  .bar-label, .price-feat li { font-size: 1rem; }
+  .sub-tag, .section-label { font-size: 0.8rem; }
+
+  /* Zip/node list: 3 equal columns wrap into an unreadable mess on narrow screens.
+     Stack the label full-width, keep detail + score paired on their own row. */
+  .zip-item {
+    grid-template-columns: 1fr auto;
+    column-gap: 16px;
+    row-gap: 4px;
+    font-size: 0.95rem;
+  }
+  .zip-item span:first-child {
+    grid-column: 1 / -1;
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .zip-item span:nth-child(2) { grid-column: 1; grid-row: 2; }
+  .zip-score { grid-column: 2; grid-row: 2; }
 }
