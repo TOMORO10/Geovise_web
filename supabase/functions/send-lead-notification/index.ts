@@ -9,7 +9,7 @@ const HUBSPOT_ACCESS_TOKEN = Deno.env.get('HUBSPOT_ACCESS_TOKEN')
 // domain (e.g. geovise.io) is verified in the Resend dashboard and used here instead.
 const INTERNAL_FROM = 'Geovise Notifications <notifications@resend.dev>'
 const PROSPECT_FROM = 'Geovise Team <notifications@resend.dev>'
-const INTERNAL_NOTIFICATION_RECIPIENTS = ['intel@geovise.io']
+const INTERNAL_NOTIFICATION_RECIPIENTS = ['marketingenergy4@gmail.com']
 
 // CORS headers
 const corsHeaders = {
