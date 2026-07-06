@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Free teaser demo, sent during/after a cold call — must never be indexed. -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <title>Geovise.io — California Repowering Snapshot (Demo)</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .demo-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--card-bg);
+      padding: 40px;
+    }
+    .demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      font-family: var(--font-data);
+      color: var(--gray-light);
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+    }
+    .demo-row strong { color: var(--white); }
+
+    .score-block { margin-bottom: 32px; }
+    .score-number {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 4rem;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .score-number small {
+      font-family: var(--font-data);
+      font-weight: 400;
+      font-size: 1.25rem;
+      color: var(--gray);
+    }
+    .score-bar-track {
+      margin-top: 14px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .score-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      width: 0%;
+      transition: width 0.6s ease;
+    }
+    .score-caption {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--gray);
+      font-family: var(--font-data);
+    }
+
+    .hook-stat {
+      font-size: 1.15rem;
+      color: var(--white);
+      line-height: 1.5;
+      margin-bottom: 28px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--gold);
+      background: rgba(200, 135, 42, 0.06);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .hook-stat strong { color: var(--gold-light); font-family: var(--font-data); }
+
+    .teaser-note {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 32px;
+    }
+
+    .demo-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 8px;
+    }
+    .btn-outline-gold {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--gray-light);
+    }
+    .btn-outline-gold:hover { border-color: var(--gold); color: var(--white); }
+
+    .not-found {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--gray-light);
+    }
+  </style>
+</head>
+<body class="subpage">
+
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" style="text-decoration: none;">
+        <span class="logo-geo">GEO</span><span class="logo-vise">VISE</span><span class="logo-dot">.io</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mailto:intel@geovise.io" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ====== DEMO HERO ====== -->
+  <header class="subpage-hero">
+    <div class="container">
+      <span class="sub-tag">FREE SNAPSHOT · CALIFORNIA</span>
+      <h1 class="sub-title" id="demoTitle">Your Repowering Opportunity Snapshot</h1>
+      <p class="sub-subtitle" id="demoIntro">
+        A quick look at what our data shows for your area — a preview of the full territory analysis.
+      </p>
+    </div>
+  </header>
+
+  <!-- ====== DEMO BODY ====== -->
+  <section class="pricing-section" id="demo">
+    <div class="container" style="max-width: 720px;">
+
+      <div class="demo-card" id="reportContent">
+
+        <!-- Not-found state -->
+        <div class="not-found" id="notFoundState" hidden>
+          <span class="section-label">No Coverage Yet</span>
+          <p style="margin-top: 12px;">Aún no tenemos cobertura en esta zona — contáctanos para evaluar disponibilidad.</p>
+        </div>
+
+        <!-- Found state -->
+        <div id="foundState" hidden>
+          <span class="section-label">Territory Snapshot</span>
+          <div class="demo-row" style="margin-top: 12px;">
+            <span>ZIP <strong id="zipValue">—</strong></span>
+            <span>County <strong id="countyValue">—</strong></span>
+            <span>Utility <strong id="utilityValue">—</strong></span>
+          </div>
+
+          <div class="score-block">
+            <span class="section-label">Opportunity Score</span>
+            <div class="score-number" style="margin-top: 8px;">
+              <span id="scoreValue">0.0</span><small> / 10</small>
+            </div>
+            <div class="score-bar-track"><div class="score-bar-fill" id="scoreBar"></div></div>
+            <p class="score-caption">Relative market opportunity, based on repowering-eligible system density in this ZIP.</p>
+          </div>
+
+          <p class="hook-stat" id="hookStat"></p>
+
+          <p class="teaser-note">
+            Geovise identifies pre-2020 solar systems approaching the economics for repowering under current NEM rules, and scores the commercial opportunity by area. This snapshot shows the headline number only — the full report breaks down installer activity, competitive density, and area-by-area ranking.
+          </p>
+
+          <div class="demo-actions">
+            <a href="#" class="btn btn-gold btn-large" id="ctaBtn">Ver el reporte completo de tu zona →</a>
+            <button type="button" class="btn btn-outline-gold btn-large" id="downloadPdfBtn">Descargar PDF</button>
+          </div>
+        </div>
+
+      </div>
+
+      <p style="text-align: center; margin-top: 28px; font-size: 0.85rem; color: var(--gray);">
+        Questions? Email <a href="mailto:intel@geovise.io" style="color: var(--gold);">intel@geovise.io</a>.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="text-decoration: none;">
+          <span class="logo-geo">GEO</span><span class="logo-vise">VISE</span><span class="logo-dot">.io</span>
+        </a>
+        <p class="footer-tagline">Geospatial Intelligence for the Energy Transition.</p>
+      </div>
+      <div class="footer-col" style="text-align: right;">
+        <span class="gray">© 2026 Geovise.io. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PDF export libs, loaded from cdnjs — only needed for the "Descargar PDF" button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var params = new URLSearchParams(window.location.search);
+      var zip = (params.get('zip') || '').trim();
+      var client = (params.get('client') || '').trim();
+
+      /* ── Client name interpolation (escaped via textContent, no innerHTML) ── */
+      if (client) {
+        document.getElementById('demoTitle').textContent = 'Repowering Opportunity Snapshot for ' + client;
+        document.title = 'Geovise.io — Snapshot for ' + client;
+      }
+
+      var notFoundEl = document.getElementById('notFoundState');
+      var foundEl    = document.getElementById('foundState');
+
+      function showNotFound() {
+        notFoundEl.hidden = false;
+        foundEl.hidden = true;
+      }
+
+      function renderZip(zip, data) {
+        foundEl.hidden = false;
+        notFoundEl.hidden = true;
+
+        document.getElementById('zipValue').textContent = zip;
+        document.getElementById('countyValue').textContent = data.county;
+        document.getElementById('utilityValue').textContent = data.utility;
+
+        var score = Number(data.opportunityScore) || 0;
+        document.getElementById('scoreValue').textContent = score.toFixed(1);
+        document.getElementById('scoreBar').style.width = Math.max(0, Math.min(100, score * 10)) + '%';
+
+        document.getElementById('hookStat').innerHTML =
+          '<strong>' + Number(data.pre2020Systems || 0).toLocaleString('en-US') + '</strong> sistemas solares pre-2020 identificados con potencial de repowering en esta zona.';
+
+        var qp = new URLSearchParams();
+        qp.set('tier', '1');
+        qp.set('zip', zip);
+        if (client) qp.set('client', client);
+        document.getElementById('ctaBtn').setAttribute('href', 'proposal-california.html?' + qp.toString());
+      }
+
+      if (!zip) {
+        showNotFound();
+      } else {
+        fetch('zip-data.json')
+          .then(function (res) { return res.json(); })
+          .then(function (dataset) {
+            var entry = dataset[zip];
+            if (entry) {
+              renderZip(zip, entry);
+            } else {
+              showNotFound();
+            }
+          })
+          .catch(function () {
+            showNotFound();
+          });
+      }
+
+      /* ── PDF export: captures only #reportContent, not the nav/footer ── */
+      var downloadBtn = document.getElementById('downloadPdfBtn');
+      downloadBtn.addEventListener('click', function () {
+        if (typeof html2canvas !== 'function' || !window.jspdf) {
+          alert('No se pudo cargar el generador de PDF. Revisa tu conexión e intenta de nuevo.');
+          return;
+        }
+
+        var reportEl = document.getElementById('reportContent');
+        var originalText = downloadBtn.textContent;
+        downloadBtn.textContent = 'Generando…';
+        downloadBtn.disabled = true;
+
+        html2canvas(reportEl, { backgroundColor: '#050d1a', scale: 2 })
+          .then(function (canvas) {
+            var imgData = canvas.toDataURL('image/png');
+            var jsPDF = window.jspdf.jsPDF;
+            var pdf = new jsPDF({ orientation: 'portrait', unit: 'pt', format: 'letter' });
+
+            var pageWidth = pdf.internal.pageSize.getWidth();
+            var pageHeight = pdf.internal.pageSize.getHeight();
+            var margin = 36;
+            var imgProps = pdf.getImageProperties(imgData);
+            var ratio = Math.min(
+              (pageWidth - margin * 2) / imgProps.width,
+              (pageHeight - margin * 2) / imgProps.height
+            );
+            var imgWidth = imgProps.width * ratio;
+            var imgHeight = imgProps.height * ratio;
+            var x = (pageWidth - imgWidth) / 2;
+            var y = margin;
+
+            pdf.setFillColor(5, 13, 26);
+            pdf.rect(0, 0, pageWidth, pageHeight, 'F');
+            pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
+            pdf.save('Geovise-Demo-' + (zip || 'CA') + '.pdf');
+          })
+          .catch(function (err) {
+            console.error('PDF generation failed:', err);
+            alert('No se pudo generar el PDF. Intenta de nuevo.');
+          })
+          .finally(function () {
+            downloadBtn.textContent = originalText;
+            downloadBtn.disabled = false;
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
