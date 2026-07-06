@@ -358,6 +358,13 @@
         // Success
         form.style.display = 'none';
         formSuccess.classList.add('visible');
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', {
+            form_id: form.id || 'contact',
+            product_of_interest: data.product_of_interest || null
+          });
+        }
       } catch (error) {
         console.error('Submission Detail Error:', error);
         alert(`Error: ${error.message}\n\nCheck the browser console (F12) for more details.`);
