@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Private, unlisted proposal page — must never be indexed by search engines. -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- ▼▼▼ EDIT PER CLIENT: page title (shows in browser tab) ▼▼▼ -->
+  <title>Geovise.io — Proposal for [CLIENT NAME]</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="subpage">
+
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" style="text-decoration: none;">
+        <span class="logo-geo">GEO</span><span class="logo-vise">VISE</span><span class="logo-dot">.io</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mailto:intel@geovise.io" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ====== PROPOSAL HERO ====== -->
+  <header class="subpage-hero">
+    <div class="container">
+      <span class="sub-tag">PRIVATE PROPOSAL</span>
+      <!-- ▼▼▼ EDIT PER CLIENT: client name + one-line summary ▼▼▼ -->
+      <h1 class="sub-title">Prepared for [CLIENT NAME]</h1>
+      <p class="sub-subtitle">A custom intelligence engagement scoped for your team. Review the details below and complete secure payment to begin.</p>
+    </div>
+  </header>
+
+  <!-- ====== PROPOSAL BODY ====== -->
+  <section class="pricing-section" id="proposal">
+    <div class="container" style="max-width: 820px;">
+
+      <!-- The offer card -->
+      <div class="pricing-card featured">
+        <span class="section-label">Your Engagement</span>
+
+        <!-- ▼▼▼ EDIT PER CLIENT: product name ▼▼▼ -->
+        <h2 class="tech-title" style="font-size: 1.75rem; margin-top: 8px;">Repowering Pipeline ZIP Report</h2>
+
+        <!-- ▼▼▼ EDIT PER CLIENT: price ▼▼▼ -->
+        <div class="price-tag">$299<small style="font-size: 0.35em; color: var(--gray);"> one-time</small></div>
+
+        <!-- ▼▼▼ EDIT PER CLIENT: what's included (add/remove <li> as needed) ▼▼▼ -->
+        <ul class="price-feat">
+          <li>Ranked list of target ZIPs by repowering opportunity volume</li>
+          <li>System age, capacity, and inverter data per record</li>
+          <li>NEM 2.0 / NEM 3.0 financial impact estimate</li>
+          <li>Delivered as a clean, actionable spreadsheet within 48 hours</li>
+        </ul>
+
+        <!-- ▼▼▼ EDIT PER CLIENT: paste your Stripe Payment Link in href below ▼▼▼ -->
+        <a href="REPLACE_WITH_STRIPE_PAYMENT_LINK"
+           class="btn btn-gold btn-large"
+           id="payBtn"
+           target="_blank"
+           rel="noopener">
+          Complete Secure Payment →
+        </a>
+
+        <p style="text-align: center; margin-top: 20px; font-size: 0.85rem; color: var(--gray);">
+          Secure checkout powered by Stripe. Card &amp; ACH accepted.
+        </p>
+      </div>
+
+      <!-- Scope / notes -->
+      <div style="margin-top: 48px;">
+        <span class="section-label">Scope &amp; Terms</span>
+        <h3 class="tech-title" style="margin-bottom: 20px;">What to expect</h3>
+        <!-- ▼▼▼ EDIT PER CLIENT: scope paragraph(s) ▼▼▼ -->
+        <p class="gray-light" style="margin-bottom: 16px;">
+          This engagement covers a single territory report as described above. Delivery is via a secure link to your corporate email on file after payment is confirmed. Custom territories, additional nodes, or enterprise volume can be quoted separately.
+        </p>
+        <p class="gray-light">
+          Questions before proceeding? Email
+          <a href="mailto:intel@geovise.io" style="color: var(--gold);">intel@geovise.io</a>.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="text-decoration: none;">
+          <span class="logo-geo">GEO</span><span class="logo-vise">VISE</span><span class="logo-dot">.io</span>
+        </a>
+        <p class="footer-tagline">Geospatial Intelligence for the Energy Transition.</p>
+      </div>
+      <div class="footer-col" style="text-align: right;">
+        <span class="gray">© 2026 Geovise.io. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Optional: track when a prospect clicks "Pay" (fires into GA4 if present on this page).
+    // GA4 is intentionally NOT loaded here to keep private proposals out of aggregate reports,
+    // but if you add the gtag snippet later, this will start reporting pay-click intent.
+    var payBtn = document.getElementById('payBtn');
+    if (payBtn) {
+      payBtn.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'begin_checkout', { source: 'proposal_page' });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
