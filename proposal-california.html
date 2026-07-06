@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Private, unlisted per-client proposal — must never be indexed. -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <title>Geovise.io — California Repowering Intelligence Proposal</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Tier selector — scoped styles reusing the brand palette from styles.css */
+    .tier-selector {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 40px 0 8px;
+    }
+    .tier-btn {
+      flex: 1 1 200px;
+      max-width: 260px;
+      padding: 16px 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      color: var(--gray-light);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      text-align: center;
+      line-height: 1.3;
+    }
+    .tier-btn small {
+      display: block;
+      font-family: var(--font-data);
+      font-weight: 400;
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-top: 6px;
+    }
+    .tier-btn:hover { border-color: var(--gold); color: var(--white); }
+    .tier-btn.active {
+      border-color: var(--gold);
+      background: rgba(200, 135, 42, 0.08);
+      color: var(--white);
+      box-shadow: 0 0 24px rgba(200, 135, 42, 0.12);
+    }
+    .tier-btn.active small { color: var(--gold-light); }
+    @media (max-width: 600px) {
+      .tier-btn { flex-basis: 100%; max-width: 100%; }
+    }
+  </style>
+</head>
+<body class="subpage">
+
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" style="text-decoration: none;">
+        <span class="logo-geo">GEO</span><span class="logo-vise">VISE</span><span class="logo-dot">.io</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mailto:intel@geovise.io" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ====== PROPOSAL HERO ====== -->
+  <header class="subpage-hero">
+    <div class="container">
+      <span class="sub-tag">PRIVATE PROPOSAL · CALIFORNIA</span>
+      <h1 class="sub-title" id="proposalTitle">California Repowering Intelligence</h1>
+      <p class="sub-subtitle" id="proposalIntro">
+        A market-intelligence engagement scoped for your team. Choose the service level below, review the scope, and complete secure payment to begin.
+      </p>
+    </div>
+  </header>
+
+  <!-- ====== PROPOSAL BODY ====== -->
+  <section class="pricing-section" id="proposal">
+    <div class="container" style="max-width: 860px;">
+
+      <!-- Tier selector -->
+      <span class="section-label centered" style="display:block; text-align:center;">Select Your Service Level</span>
+      <div class="tier-selector" id="tierSelector" role="tablist" aria-label="Service level">
+        <button class="tier-btn" data-tier="1" role="tab" type="button">
+          Territory Snapshot <small>$299</small>
+        </button>
+        <button class="tier-btn" data-tier="2" role="tab" type="button">
+          Deep Dive Report <small>$999</small>
+        </button>
+        <button class="tier-btn" data-tier="3" role="tab" type="button">
+          Portfolio Intelligence <small>$1,999</small>
+        </button>
+      </div>
+
+      <!-- The active offer card -->
+      <div class="pricing-card featured" style="margin-top: 32px;">
+        <span class="section-label">Your Engagement</span>
+
+        <h2 class="tech-title" id="tierName" style="font-size: 1.75rem; margin-top: 8px;">Territory Snapshot</h2>
+
+        <div class="price-tag"><span id="tierPrice">$299</span><small style="font-size: 0.35em; color: var(--gray);"> one-time</small></div>
+
+        <ul class="price-feat" id="tierScope">
+          <!-- populated by JS from PRICING_CONFIG -->
+        </ul>
+
+        <p id="tierDelivery" style="font-size: 0.9rem; color: var(--gray-light); margin-bottom: 28px; font-family: var(--font-data);">
+          <!-- populated by JS -->
+        </p>
+
+        <a href="#" class="btn btn-gold btn-large" id="payBtn" target="_blank" rel="noopener">
+          Complete Secure Payment →
+        </a>
+
+        <p style="text-align: center; margin-top: 20px; font-size: 0.85rem; color: var(--gray);">
+          Secure checkout powered by Stripe. Card &amp; ACH accepted.
+        </p>
+      </div>
+
+      <!-- California market context -->
+      <div style="margin-top: 48px;">
+        <span class="section-label">How We Source the Data</span>
+        <h3 class="tech-title" style="margin-bottom: 20px;">California market intelligence</h3>
+        <p class="gray-light" style="margin-bottom: 16px;">
+          Our reports are built from CPUC interconnection records, utility-territory datasets (PG&amp;E, SDG&amp;E), NEM enrollment history, and an installer activity dataset spanning California's solar market. We isolate pre-2020 systems with the strongest repowering economics under current NEM rules and rank the opportunity by installer density and interconnection-queue signals.
+        </p>
+        <p class="gray-light">
+          Questions before proceeding? Email
+          <a href="mailto:intel@geovise.io" style="color: var(--gold);">intel@geovise.io</a>.
+        </p>
+      </div>
+
+      <!-- Validity & terms -->
+      <div style="margin-top: 48px; padding: 24px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--card-bg);">
+        <span class="section-label">Validity &amp; Terms</span>
+        <p class="gray-light" style="margin-top: 8px;">
+          This proposal and its pricing are valid for <strong style="color: var(--white);">48 hours</strong> from the time it was sent. Delivery begins once payment is confirmed and is sent to your corporate email. Timeframes shown are business days. Custom territories or enterprise volume can be quoted separately.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="text-decoration: none;">
+          <span class="logo-geo">GEO</span><span class="logo-vise">VISE</span><span class="logo-dot">.io</span>
+        </a>
+        <p class="footer-tagline">Geospatial Intelligence for the Energy Transition.</p>
+      </div>
+      <div class="footer-col" style="text-align: right;">
+        <span class="gray">© 2026 Geovise.io. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ── Price catalog: the SINGLE source of truth. Price and Stripe link
+         ALWAYS come from here, keyed by tier — never from the URL — so a
+         prospect cannot change what they pay by editing query params. ── */
+      var PRICING_CONFIG = {
+        1: {
+          name: "Territory Snapshot",
+          price: 299,
+          stripeLink: "PLACEHOLDER_CA_TIER1",
+          scope: [
+            "Analysis of one specific area (single ZIP or utility territory)",
+            "Identification of pre-2020 solar systems with repowering potential",
+            "Count and profile of active installers in the area",
+            "Market opportunity score (0–10) based on density of eligible systems"
+          ],
+          delivery: "3–5 page PDF · Delivered in 48 hours"
+        },
+        2: {
+          name: "Deep Dive Report",
+          price: 999,
+          stripeLink: "PLACEHOLDER_CA_TIER2",
+          scope: [
+            "Everything in the Territory Snapshot, expanded to 3–5 ZIPs/counties within a utility territory",
+            "Competitor mapping by area with estimated market share",
+            "Per-area financial risk analysis (history of failed incentives, where applicable)",
+            "Prioritized ranking of areas by commercial attractiveness"
+          ],
+          delivery: "10–15 page PDF + raw datasheet · Delivered in 5 days"
+        },
+        3: {
+          name: "Portfolio Intelligence",
+          price: 1999,
+          stripeLink: "PLACEHOLDER_CA_TIER3",
+          scope: [
+            "Coverage of a full utility territory (PG&E or SDG&E)",
+            "Everything in the Deep Dive Report, with quarterly updates for 6 months",
+            "30-minute results walkthrough session"
+          ],
+          delivery: "Executive PDF + full dataset + session · Delivered in 7–10 days"
+        }
+      };
+
+      var params = new URLSearchParams(window.location.search);
+
+      /* ── Client name interpolation (escaped via textContent, no innerHTML) ── */
+      var client = (params.get('client') || '').trim();
+      if (client) {
+        document.getElementById('proposalTitle').textContent = 'Prepared for ' + client;
+        document.getElementById('proposalIntro').textContent =
+          'A California repowering market-intelligence engagement scoped for ' + client +
+          '. Choose the service level below, review the scope, and complete secure payment to begin.';
+        document.title = 'Geovise.io — Proposal for ' + client;
+      }
+
+      /* ── Tier selection: validate against the catalog, default to 1 ── */
+      function normalizeTier(raw) {
+        return PRICING_CONFIG.hasOwnProperty(raw) ? raw : '1';
+      }
+
+      var priceEl    = document.getElementById('tierPrice');
+      var nameEl     = document.getElementById('tierName');
+      var scopeEl    = document.getElementById('tierScope');
+      var deliveryEl = document.getElementById('tierDelivery');
+      var payBtn     = document.getElementById('payBtn');
+      var buttons    = Array.prototype.slice.call(document.querySelectorAll('.tier-btn'));
+
+      function formatPrice(n) {
+        return '$' + n.toLocaleString('en-US');
+      }
+
+      function render(tier) {
+        var cfg = PRICING_CONFIG[tier];
+
+        nameEl.textContent = cfg.name;
+        priceEl.textContent = formatPrice(cfg.price);
+        deliveryEl.textContent = cfg.delivery;
+        payBtn.setAttribute('href', cfg.stripeLink);
+
+        // Rebuild scope bullets safely (textContent per item)
+        scopeEl.innerHTML = '';
+        cfg.scope.forEach(function (item) {
+          var li = document.createElement('li');
+          li.textContent = item;
+          scopeEl.appendChild(li);
+        });
+
+        // Active-state on buttons
+        buttons.forEach(function (b) {
+          var isActive = b.getAttribute('data-tier') === tier;
+          b.classList.toggle('active', isActive);
+          b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        // Keep the URL in sync so the link can be re-shared with this selection,
+        // preserving any existing params (e.g. client).
+        var qp = new URLSearchParams(window.location.search);
+        qp.set('tier', tier);
+        history.replaceState(null, '', window.location.pathname + '?' + qp.toString());
+      }
+
+      var currentTier = normalizeTier(params.get('tier'));
+      render(currentTier);
+
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () {
+          render(b.getAttribute('data-tier'));
+        });
+      });
+
+      /* ── Optional GA4 hook (dormant unless gtag is added to this page) ── */
+      payBtn.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'begin_checkout', {
+            source: 'proposal_california',
+            tier: PRICING_CONFIG[currentTier] ? PRICING_CONFIG[currentTier].name : currentTier
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
