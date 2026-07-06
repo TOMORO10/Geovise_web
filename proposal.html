@@ -35,9 +35,10 @@
   <header class="subpage-hero">
     <div class="container">
       <span class="sub-tag">PRIVATE PROPOSAL</span>
-      <!-- ▼▼▼ EDIT PER CLIENT: client name + one-line summary ▼▼▼ -->
-      <h1 class="sub-title">Prepared for [CLIENT NAME]</h1>
-      <p class="sub-subtitle">A custom intelligence engagement scoped for your team. Review the details below and complete secure payment to begin.</p>
+      <!-- Client name can be personalized via URL (?client=Acme%20Energy) OR edited here.
+           If neither is set, it falls back to a clean, professional default. -->
+      <h1 class="sub-title" id="proposalTitle">A Custom Intelligence Engagement</h1>
+      <p class="sub-subtitle">Scoped for your team. Review the details below and complete secure payment to begin.</p>
     </div>
   </header>
 
@@ -49,11 +50,11 @@
       <div class="pricing-card featured">
         <span class="section-label">Your Engagement</span>
 
-        <!-- ▼▼▼ EDIT PER CLIENT: product name ▼▼▼ -->
-        <h2 class="tech-title" style="font-size: 1.75rem; margin-top: 8px;">Repowering Pipeline ZIP Report</h2>
+        <!-- Product name: editable here, or via URL (?product=...) -->
+        <h2 class="tech-title" id="proposalProduct" style="font-size: 1.75rem; margin-top: 8px;">Repowering Pipeline ZIP Report</h2>
 
-        <!-- ▼▼▼ EDIT PER CLIENT: price ▼▼▼ -->
-        <div class="price-tag">$299<small style="font-size: 0.35em; color: var(--gray);"> one-time</small></div>
+        <!-- Price: editable here, or via URL (?price=299) -->
+        <div class="price-tag"><span id="proposalPrice">$299</span><small style="font-size: 0.35em; color: var(--gray);"> one-time</small></div>
 
         <!-- ▼▼▼ EDIT PER CLIENT: what's included (add/remove <li> as needed) ▼▼▼ -->
         <ul class="price-feat">
@@ -110,6 +111,32 @@
   </footer>
 
   <script>
+    // ── Personalize per client via URL params, no need to edit the HTML each time ──
+    //   ?client=Acme%20Energy   → headline becomes "Prepared for Acme Energy"
+    //   ?product=Custom%20Report → overrides the product name
+    //   ?price=$1,500           → overrides the price
+    //   ?pay=https://buy.stripe.com/xxxx → sets the pay button link
+    // Any param left out keeps the default already written in the HTML.
+    // Values are inserted with textContent (never innerHTML) so they can't inject markup.
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+
+      var client = params.get('client');
+      if (client) {
+        document.getElementById('proposalTitle').textContent = 'Prepared for ' + client;
+        document.title = 'Geovise.io — Proposal for ' + client;
+      }
+
+      var product = params.get('product');
+      if (product) document.getElementById('proposalProduct').textContent = product;
+
+      var price = params.get('price');
+      if (price) document.getElementById('proposalPrice').textContent = price;
+
+      var pay = params.get('pay');
+      if (pay && /^https:\/\//.test(pay)) document.getElementById('payBtn').setAttribute('href', pay);
+    })();
+
     // Optional: track when a prospect clicks "Pay" (fires into GA4 if present on this page).
     // GA4 is intentionally NOT loaded here to keep private proposals out of aggregate reports,
     // but if you add the gtag snippet later, this will start reporting pay-click intent.
