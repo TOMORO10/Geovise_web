@@ -142,7 +142,7 @@
         <!-- Not-found state -->
         <div class="not-found" id="notFoundState" hidden>
           <span class="section-label">No Coverage Yet</span>
-          <p style="margin-top: 12px;">Aún no tenemos cobertura en esta zona — contáctanos para evaluar disponibilidad.</p>
+          <p style="margin-top: 12px;">We don't have coverage in this area yet — contact us to check availability.</p>
         </div>
 
         <!-- Found state -->
@@ -170,8 +170,8 @@
           </p>
 
           <div class="demo-actions">
-            <a href="#" class="btn btn-gold btn-large" id="ctaBtn">Ver el reporte completo de tu zona →</a>
-            <button type="button" class="btn btn-outline-gold btn-large" id="downloadPdfBtn">Descargar PDF</button>
+            <a href="#" class="btn btn-gold btn-large" id="ctaBtn">See the full report for your area →</a>
+            <button type="button" class="btn btn-outline-gold btn-large" id="downloadPdfBtn">Download PDF</button>
           </div>
         </div>
 
@@ -199,7 +199,7 @@
     </div>
   </footer>
 
-  <!-- PDF export libs, loaded from cdnjs — only needed for the "Descargar PDF" button -->
+  <!-- PDF export libs, loaded from cdnjs — only needed for the "Download PDF" button -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
@@ -238,7 +238,7 @@
         document.getElementById('scoreBar').style.width = Math.max(0, Math.min(100, score * 10)) + '%';
 
         document.getElementById('hookStat').innerHTML =
-          '<strong>' + Number(data.pre2020Systems || 0).toLocaleString('en-US') + '</strong> sistemas solares pre-2020 identificados con potencial de repowering en esta zona.';
+          '<strong>' + Number(data.pre2020Systems || 0).toLocaleString('en-US') + '</strong> pre-2020 solar systems identified with repowering potential in this area.';
 
         var qp = new URLSearchParams();
         qp.set('tier', '1');
@@ -269,13 +269,13 @@
       var downloadBtn = document.getElementById('downloadPdfBtn');
       downloadBtn.addEventListener('click', function () {
         if (typeof html2canvas !== 'function' || !window.jspdf) {
-          alert('No se pudo cargar el generador de PDF. Revisa tu conexión e intenta de nuevo.');
+          alert('Could not load the PDF generator. Check your connection and try again.');
           return;
         }
 
         var reportEl = document.getElementById('reportContent');
         var originalText = downloadBtn.textContent;
-        downloadBtn.textContent = 'Generando…';
+        downloadBtn.textContent = 'Generating…';
         downloadBtn.disabled = true;
 
         html2canvas(reportEl, { backgroundColor: '#050d1a', scale: 2 })
@@ -304,7 +304,7 @@
           })
           .catch(function (err) {
             console.error('PDF generation failed:', err);
-            alert('No se pudo generar el PDF. Intenta de nuevo.');
+            alert('Could not generate the PDF. Please try again.');
           })
           .finally(function () {
             downloadBtn.textContent = originalText;
