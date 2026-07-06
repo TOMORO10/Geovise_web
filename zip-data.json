@@ -1,0 +1,8 @@
+{
+  "95648": { "county": "Yuba County", "utility": "PG&E", "opportunityScore": 7.4, "pre2020Systems": 342 },
+  "94203": { "county": "Sacramento County", "utility": "PG&E", "opportunityScore": 6.2, "pre2020Systems": 271 },
+  "93401": { "county": "San Luis Obispo County", "utility": "PG&E", "opportunityScore": 8.6, "pre2020Systems": 489 },
+  "92101": { "county": "San Diego County", "utility": "SDG&E", "opportunityScore": 8.1, "pre2020Systems": 518 },
+  "92027": { "county": "San Diego County", "utility": "SDG&E", "opportunityScore": 7.0, "pre2020Systems": 305 },
+  "95350": { "county": "Stanislaus County", "utility": "PG&E", "opportunityScore": 5.8, "pre2020Systems": 198 }
+}
