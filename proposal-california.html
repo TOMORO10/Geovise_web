@@ -59,6 +59,31 @@
     @media (max-width: 600px) {
       .tier-btn { flex-basis: 100%; max-width: 100%; }
     }
+
+    /* ZIP selector — Tier 1 only, San Francisco coverage */
+    .zip-select-wrap { margin-bottom: 28px; }
+    .zip-select-wrap label {
+      display: block;
+      margin-bottom: 8px;
+    }
+    .zip-select {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--white);
+      font-family: var(--font-data);
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+    .zip-select:focus { border-color: var(--gold); outline: none; }
+    .zip-context {
+      font-family: var(--font-data);
+      color: var(--gray-light);
+      font-size: 0.85rem;
+      margin: -4px 0 20px;
+    }
   </style>
 </head>
 <body class="subpage">
@@ -110,6 +135,13 @@
         <span class="section-label">Your Engagement</span>
 
         <h2 class="tech-title" id="tierName" style="font-size: 1.75rem; margin-top: 8px;">Territory Snapshot</h2>
+
+        <p class="zip-context" id="zipContext" hidden></p>
+
+        <div class="zip-select-wrap" id="zipSelectorWrap" hidden>
+          <label for="zipSelect" class="section-label">San Francisco ZIP Code</label>
+          <select class="zip-select" id="zipSelect" aria-label="San Francisco ZIP code"></select>
+        </div>
 
         <div class="price-tag"><span id="tierPrice">$299</span><small style="font-size: 0.35em; color: var(--gray);"> one-time</small></div>
 
@@ -214,6 +246,35 @@
         }
       };
 
+      /* ── San Francisco ZIP coverage for Tier 1 (Territory Snapshot) ── */
+      var SF_ZIPS = [
+        { zip: "94102", area: "Civic Center / Tenderloin" },
+        { zip: "94103", area: "SoMa" },
+        { zip: "94104", area: "Financial District" },
+        { zip: "94105", area: "South Beach / Rincon Hill" },
+        { zip: "94107", area: "Potrero Hill / Dogpatch" },
+        { zip: "94108", area: "Chinatown" },
+        { zip: "94109", area: "Nob Hill / Russian Hill" },
+        { zip: "94110", area: "Mission / Bernal Heights" },
+        { zip: "94112", area: "Excelsior / Ingleside" },
+        { zip: "94114", area: "Castro / Noe Valley" },
+        { zip: "94115", area: "Pacific Heights / Japantown" },
+        { zip: "94116", area: "Parkside / Forest Hill" },
+        { zip: "94117", area: "Haight-Ashbury / Cole Valley" },
+        { zip: "94118", area: "Inner Richmond" },
+        { zip: "94121", area: "Outer Richmond" },
+        { zip: "94122", area: "Inner Sunset" },
+        { zip: "94123", area: "Marina" },
+        { zip: "94124", area: "Bayview-Hunters Point" },
+        { zip: "94127", area: "West Portal / St. Francis Wood" },
+        { zip: "94131", area: "Noe Valley / Diamond Heights" },
+        { zip: "94132", area: "Lake Merced / Parkside" },
+        { zip: "94133", area: "North Beach" },
+        { zip: "94134", area: "Visitacion Valley" },
+        { zip: "94158", area: "Mission Bay" }
+      ];
+      var SF_ZIP_CODES = SF_ZIPS.map(function (z) { return z.zip; });
+
       var params = new URLSearchParams(window.location.search);
 
       /* ── Client name interpolation (escaped via textContent, no innerHTML) ── */
@@ -231,24 +292,53 @@
         return PRICING_CONFIG.hasOwnProperty(raw) ? raw : '1';
       }
 
-      var priceEl    = document.getElementById('tierPrice');
-      var nameEl     = document.getElementById('tierName');
-      var scopeEl    = document.getElementById('tierScope');
-      var deliveryEl = document.getElementById('tierDelivery');
-      var payBtn     = document.getElementById('payBtn');
-      var buttons    = Array.prototype.slice.call(document.querySelectorAll('.tier-btn'));
+      var priceEl      = document.getElementById('tierPrice');
+      var nameEl       = document.getElementById('tierName');
+      var scopeEl      = document.getElementById('tierScope');
+      var deliveryEl   = document.getElementById('tierDelivery');
+      var payBtn       = document.getElementById('payBtn');
+      var buttons      = Array.prototype.slice.call(document.querySelectorAll('.tier-btn'));
+      var zipWrapEl    = document.getElementById('zipSelectorWrap');
+      var zipSelectEl  = document.getElementById('zipSelect');
+      var zipContextEl = document.getElementById('zipContext');
 
       function formatPrice(n) {
         return '$' + n.toLocaleString('en-US');
       }
 
-      function render(tier) {
+      /* ── ZIP selector: populate once, validate against the SF list ── */
+      SF_ZIPS.forEach(function (entry) {
+        var opt = document.createElement('option');
+        opt.value = entry.zip;
+        opt.textContent = entry.zip + ' — ' + entry.area;
+        zipSelectEl.appendChild(opt);
+      });
+
+      function normalizeZip(raw) {
+        return SF_ZIP_CODES.indexOf(raw) !== -1 ? raw : SF_ZIP_CODES[0];
+      }
+
+      var currentZip = normalizeZip(params.get('zip'));
+      zipSelectEl.value = currentZip;
+
+      function render(tier, zip) {
         var cfg = PRICING_CONFIG[tier];
+        var isTier1 = tier === '1';
 
         nameEl.textContent = cfg.name;
         priceEl.textContent = formatPrice(cfg.price);
         deliveryEl.textContent = cfg.delivery;
-        payBtn.setAttribute('href', cfg.stripeLink);
+
+        // ZIP selector only applies to the single-ZIP Territory Snapshot tier
+        zipWrapEl.hidden = !isTier1;
+        zipContextEl.hidden = !isTier1;
+        if (isTier1) {
+          zipContextEl.textContent = 'Scoped to ZIP ' + zip + ' · San Francisco, CA';
+        }
+
+        // Reference the selected ZIP in the Stripe payment link (client_reference_id)
+        // so the specific engagement is traceable in the Stripe dashboard.
+        payBtn.setAttribute('href', isTier1 ? cfg.stripeLink + '?client_reference_id=CA-' + zip : cfg.stripeLink);
 
         // Rebuild scope bullets safely (textContent per item)
         scopeEl.innerHTML = '';
@@ -269,16 +359,27 @@
         // preserving any existing params (e.g. client).
         var qp = new URLSearchParams(window.location.search);
         qp.set('tier', tier);
+        if (isTier1) {
+          qp.set('zip', zip);
+        } else {
+          qp.delete('zip');
+        }
         history.replaceState(null, '', window.location.pathname + '?' + qp.toString());
       }
 
       var currentTier = normalizeTier(params.get('tier'));
-      render(currentTier);
+      render(currentTier, currentZip);
 
       buttons.forEach(function (b) {
         b.addEventListener('click', function () {
-          render(b.getAttribute('data-tier'));
+          currentTier = b.getAttribute('data-tier');
+          render(currentTier, currentZip);
         });
+      });
+
+      zipSelectEl.addEventListener('change', function () {
+        currentZip = normalizeZip(zipSelectEl.value);
+        render(currentTier, currentZip);
       });
 
       /* ── Optional GA4 hook (dormant unless gtag is added to this page) ── */
