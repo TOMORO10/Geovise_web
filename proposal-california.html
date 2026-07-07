@@ -246,32 +246,17 @@
         }
       };
 
-      /* ── San Francisco ZIP coverage for Tier 1 (Territory Snapshot) ── */
+      /* ── San Francisco ZIP coverage for Tier 1 (Territory Snapshot) ──
+         Restricted to ZIPs with a real, sourced dataset behind them
+         (CPUC/PG&E interconnection + CSI + DataSF permits, 2008–2012
+         cohort). Do not add a ZIP here until it has real data — see
+         zip-data.json, which backs both this selector and the demo. ── */
       var SF_ZIPS = [
-        { zip: "94102", area: "Civic Center / Tenderloin" },
-        { zip: "94103", area: "SoMa" },
-        { zip: "94104", area: "Financial District" },
-        { zip: "94105", area: "South Beach / Rincon Hill" },
-        { zip: "94107", area: "Potrero Hill / Dogpatch" },
-        { zip: "94108", area: "Chinatown" },
-        { zip: "94109", area: "Nob Hill / Russian Hill" },
-        { zip: "94110", area: "Mission / Bernal Heights" },
-        { zip: "94112", area: "Excelsior / Ingleside" },
+        { zip: "94110", area: "Mission District" },
+        { zip: "94112", area: "Excelsior / Outer Mission" },
         { zip: "94114", area: "Castro / Noe Valley" },
-        { zip: "94115", area: "Pacific Heights / Japantown" },
-        { zip: "94116", area: "Parkside / Forest Hill" },
-        { zip: "94117", area: "Haight-Ashbury / Cole Valley" },
-        { zip: "94118", area: "Inner Richmond" },
-        { zip: "94121", area: "Outer Richmond" },
-        { zip: "94122", area: "Inner Sunset" },
-        { zip: "94123", area: "Marina" },
-        { zip: "94124", area: "Bayview-Hunters Point" },
-        { zip: "94127", area: "West Portal / St. Francis Wood" },
-        { zip: "94131", area: "Noe Valley / Diamond Heights" },
-        { zip: "94132", area: "Lake Merced / Parkside" },
-        { zip: "94133", area: "North Beach" },
-        { zip: "94134", area: "Visitacion Valley" },
-        { zip: "94158", area: "Mission Bay" }
+        { zip: "94131", area: "Glen Park / Twin Peaks" },
+        { zip: "94124", area: "Bayview / Hunters Point" }
       ];
       var SF_ZIP_CODES = SF_ZIPS.map(function (z) { return z.zip; });
 
