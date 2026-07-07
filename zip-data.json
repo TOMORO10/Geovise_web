@@ -1,8 +1,7 @@
 {
-  "95648": { "county": "Yuba County", "utility": "PG&E", "opportunityScore": 7.4, "pre2020Systems": 342 },
-  "94203": { "county": "Sacramento County", "utility": "PG&E", "opportunityScore": 6.2, "pre2020Systems": 271 },
-  "93401": { "county": "San Luis Obispo County", "utility": "PG&E", "opportunityScore": 8.6, "pre2020Systems": 489 },
-  "92101": { "county": "San Diego County", "utility": "SDG&E", "opportunityScore": 8.1, "pre2020Systems": 518 },
-  "92027": { "county": "San Diego County", "utility": "SDG&E", "opportunityScore": 7.0, "pre2020Systems": 305 },
-  "95350": { "county": "Stanislaus County", "utility": "PG&E", "opportunityScore": 5.8, "pre2020Systems": 198 }
+  "94110": { "county": "San Francisco County", "utility": "PG&E", "opportunityScore": 8.7, "pre2020Systems": 349, "confirmedAddresses": 0, "avgSystemAgeYears": 14.8, "avgSystemKW": 2.40 },
+  "94112": { "county": "San Francisco County", "utility": "PG&E", "opportunityScore": 7.1, "pre2020Systems": 254, "confirmedAddresses": 0, "avgSystemAgeYears": 14.9, "avgSystemKW": 1.78 },
+  "94114": { "county": "San Francisco County", "utility": "PG&E", "opportunityScore": 6.5, "pre2020Systems": 256, "confirmedAddresses": 0, "avgSystemAgeYears": 14.9, "avgSystemKW": 2.29 },
+  "94131": { "county": "San Francisco County", "utility": "PG&E", "opportunityScore": 4.0, "pre2020Systems": 197, "confirmedAddresses": 3, "avgSystemAgeYears": 14.9, "avgSystemKW": 3.04 },
+  "94124": { "county": "San Francisco County", "utility": "PG&E", "opportunityScore": 2.0, "pre2020Systems": 187, "confirmedAddresses": 0, "avgSystemAgeYears": 15.0, "avgSystemKW": 4.34 }
 }
